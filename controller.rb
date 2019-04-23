@@ -4,6 +4,14 @@ require_relative('./models/rps_model.rb')
 
 also_reload('./models/*')
 
+get '/' do
+  erb(:home)
+end
+
+get '/game-rules' do
+  erb( :game_rules )
+end
+
 get '/check-win/:hand1/:hand2' do
   hand1 = params[:hand1]
   hand2 = params[:hand2]

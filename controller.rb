@@ -4,12 +4,9 @@ require_relative('./models/rps_model.rb')
 
 also_reload('./models/*')
 
-
-
-
-get '/add/:num1/:num2' do
-  num1 = params[:num1].to_i
-  num2 = params[:num2].to_i
-  @calculation = "#{Calculator.add(num1, num2)}"
+get '/check-win/:hand1/:hand2' do
+  hand1 = params[:hand1]
+  hand2 = params[:hand2]
+  @game = "#{RPSGame.check_win(hand1, hand2)}"
   erb( :result )
 end
